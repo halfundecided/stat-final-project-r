@@ -40,3 +40,6 @@ lm1 = lm(pcb~pcb52 + pcb118 + pcb138 + pcb180, data=subdf)
 coef(lm1)
 summary(lm1)
 anova(lm1)
+
+qqnorm(residuals(lm1))
+plot(lm1, which=2)

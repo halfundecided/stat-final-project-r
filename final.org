@@ -93,8 +93,29 @@ Residuals 64   2607      41
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #+END_EXAMPLE
-We gathered the following from the results of the regression:
-  + The multiple R^2 = 0.988
+***** We gathered the following from the results of the regression:
+  + The multiple R^2 = 0.989
   + The residual SE = 6.249
 
+**** Test 1 
+
+H_{0} : \beta_0 = \beta_1 = \beta_2 = \beta_3 = \beta_4 = 0
+
+H_1 : \beta_0 \neq 0 \vee \beta_1 \neq 0 \vee \beta_2 \neq 0 \vee \beta_3 \neq 0 \vee \beta_4 \neq 0
+
+Since there is at least one \beta_n \neq 0, we reject H_0 
+
+**** Test 2  
+
+H_0 = \beta_j = 0, /j = 0, 1, 2, 3/
+
+H_1 = \beta_j \neq 0
+
+All regression coefficients are significantly different from 0 with the except of 0.94. We found that R^2 = 0.989, meaning that 98.9% of variation in PCB is from PCB52, PCB118, PCB138 and PCB180.
+
 *** (c) Examine the residuals. Do they appear to be approximately Normal? When you plot them versus each of the explanatory variables, are any patterns evident? 
+[[./graphs/image5.png]]
+According to the graphs, the residuals shows two clear outliers and shows that the residuals are approximately normal. Rhere are no other patterns in the explanatory variables of note. 
+
+** 11.44 Adjusting the analysis for potential outliers. 
+The examination of 
