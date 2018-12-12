@@ -107,9 +107,9 @@ Since there is at least one \beta_n \neq 0, we reject H_0
 
 **** Test 2  
 
-H_0 = \beta_j = 0, /j = 0, 1, 2, 3/
+H_0 : \beta_j = 0, /j = 0, 1, 2, 3/
 
-H_1 = \beta_j \neq 0
+H_1 : \beta_j \neq 0
 
 All regression coefficients are significantly different from 0 with the except of 0.94. We found that R^2 = 0.989, meaning that 98.9% of variation in PCB is from PCB52, PCB118, PCB138 and PCB180.
 
@@ -285,9 +285,9 @@ Since there is at least one \beta_n \neq 0, we reject H_0
 
 **** Test 2
 
-H_0 = \beta_j = 0, /j = 0, 1, 2, 3/
+H_0 : \beta_j = 0, /j = 0, 1, 2, 3/
 
-H_1 = \beta_j \neq 0
+H_1 : \beta_j \neq 0
 
 All regression coefficients are significantly different from 0 with the exception of the constant R^1 = 1, meaning 100% of TEQ is explained by TEQPCB, TEQDIOXIN and TEQFURAN.
 
@@ -330,7 +330,7 @@ TEQ = 1.06 − 0.097 ∗ PCB52 + 0.306 ∗ PCB118 + 0.106 ∗ PCB138 − 0.0039 
 + Residual standard error SE = 0.9571
 
 *** Significance Test: 
-+ H_0 = \beta_1 = \beta_2 = \beta_3 = \beta_4 = 0
++ H_0 : \beta_1 = \beta_2 = \beta_3 = \beta_4 = 0
 + H_a : one or more \beta \neq 0 
 + The /P/-value of both PCB118 and constant are close to 0, but still significantly different, therefore we reject null hypothesis. 
 
@@ -482,8 +482,20 @@ Residuals 61 5.2727  0.0864
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #+END_EXAMPLE
+The results of this model: 
++ Multiple R^2 = 0.7819
++ Residual standard error SE = 0.291
 
-
+Due to the resulting R^2 and SE values, this fit is not as good of a fit as the model in Exercise 11.50.
 
 ** 11.52 Interpretation of coefficients in log PCB regressions
 Use the results of your analysis of the log PCB data in Exercise 11.50 to write an explanation of how regression coefficients, standard errors of regression coefficients, and tests of significance for explanatory variables can change depending on what other explanatory variables are included in the multiple regression analysis 
+
+To summarize, the results tell us that the total amount of PCB is expected to either increase or decrease according to the coefficient of the respective congener. For example, log PCB180 has a correlation coefficient of 0.135 which means log PCB is expecrted to increase or decrease by 0.135 when log PCB180 increases or decreases by 1.
+
+Significance Test:
++ H_0 : \beta_{1} = \beta_{2} = \beta_3 = \beta_4 = 0
++ H_a : one or more \beta \neq 0
+
+The /P/-value of both PCB118 and constant are close to 0, but still significantly different.
+Therefore, we reject null hypothesis and all the coefficients are significantly different from zero. 

@@ -1,4 +1,4 @@
-% Created 2018-12-12 Wed 13:44
+% Created 2018-12-12 Wed 13:59
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -30,15 +30,15 @@
 
 
 \section*{Part One. Statistical Report}
-\label{sec:org1b0c1d5}
+\label{sec:org2c7f517}
 
 \section*{Part Two. Textbook Exercises}
-\label{sec:org0bff31a}
+\label{sec:org3d42f83}
 \subsection*{11.42 Relationships among PCB congeners}
-\label{sec:orge02c8ac}
+\label{sec:orgf5a14d4}
 Consider the following variables: PCB(the total amount of PCB) and four congeners: PCB52, PCB118, PCB138, and PCB180.
 \subsubsection*{(a) Using numerical and graphical summaries, describe the distribution of each of these variables.}
-\label{sec:org1fbb4b6}
+\label{sec:org1c81ace}
 \begin{table}[htbp]
 \caption{Numerical Summaries}
 \centering
@@ -61,7 +61,7 @@ PCB180 & 0.395 & 1.240 & 2.690 & 4.158 & 4.490 & 31.500\\
 Figure 1 shows that the distribution of PCB and PCB180 is right skewed with about six outliers for both, while all the distribution of others are right skewed with about five outliers.  
 
 \subsubsection*{(b) Using numerical and graphical summaries, describe the relationship between each pair of variables.}
-\label{sec:org3aa9e19}
+\label{sec:org9a4a694}
 \begin{table}[htbp]
 \caption{Correlations}
 \centering
@@ -92,17 +92,17 @@ PCB138 & PCB180 & 0.8823022\\
 \end{center}
 
 \subsection*{11.43 Predictiong the total amount of PCB}
-\label{sec:org1b4f413}
+\label{sec:orgdb14bc3}
 Use the four congeners PCB52, PCB118, PCB138, and PCB180 in a multiple regression to predict PCB. 
 \subsubsection*{(a) Write the statistical model for this analysis. Include all assumptions.}
-\label{sec:orgca5dcdc}
+\label{sec:org0234a5a}
 The multiple linear regression model for the data with 69 observations:
 
 y\(_{\text{i}}\) = \(\beta_{\text{0}}\) + \(\beta_{\text{1}}\)x\(_{\text{i1}}\) + \(\beta_{\text{2}}\)x\(_{\text{i2}}\) + \(\beta_{\text{3}}\)x\(_{\text{i3}}\) + \(\beta_{\text{4}}\)x\(_{\text{i4}}\) + i \emph{for} \emph{i = 1, 2, \ldots{} , 69}
 
 We assume that the residuals are independent and are normally distributed. 
 \subsubsection*{(b) Run the regression and summarize the results.}
-\label{sec:org1d30215}
+\label{sec:orgf465c4b}
 Multiple regression analyses were conducted to examine the relationship between PCB and four congeners. Running the multiple regression model in R with the four congeners produced the following:
 \begin{verbatim}
 
@@ -149,7 +149,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 \end{verbatim}
 \begin{itemize}
 \item We gathered the following from the results of the regression:
-\label{sec:orgf111c41}
+\label{sec:org9ac9b55}
 \begin{itemize}
 \item The multiple R\(^{\text{2}}\) = 0.989
 \item The residual SE = 6.249
@@ -157,7 +157,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 \end{itemize}
 
 \item Test 1
-\label{sec:org11293af}
+\label{sec:org2cab816}
 
 H\(_{\text{0}}\) : \(\beta_{\text{0}}\) = \(\beta_{\text{1}}\) = \(\beta_{\text{2}}\) = \(\beta_{\text{3}}\) = \(\beta_{\text{4}}\) = 0
 
@@ -166,34 +166,34 @@ H\(_{\text{1}}\) : \(\beta_{\text{0}}\) \(\neq\) 0 \(\vee\) \(\beta_{\text{1}}\)
 Since there is at least one \(\beta_{\text{n}}\) \(\neq\) 0, we reject H\(_{\text{0}}\) 
 
 \item Test 2
-\label{sec:org0b2b635}
+\label{sec:org8e4720d}
 
-H\(_{\text{0}}\) = \(\beta_{\text{j}}\) = 0, \emph{j = 0, 1, 2, 3}
+H\(_{\text{0}}\) : \(\beta_{\text{j}}\) = 0, \emph{j = 0, 1, 2, 3}
 
-H\(_{\text{1}}\) = \(\beta_{\text{j}}\) \(\neq\) 0
+H\(_{\text{1}}\) : \(\beta_{\text{j}}\) \(\neq\) 0
 
 All regression coefficients are significantly different from 0 with the except of 0.94. We found that R\(^{\text{2}}\) = 0.989, meaning that 98.9\% of variation in PCB is from PCB52, PCB118, PCB138 and PCB180.
 \end{itemize}
 
 \subsubsection*{(c) Examine the residuals. Do they appear to be approximately Normal? When you plot them versus each of the explanatory variables, are any patterns evident?}
-\label{sec:org403a548}
+\label{sec:org4f3dc46}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./graphs/image5.png}
 \end{center}
 According to the graphs, the residuals shows two clear outliers and shows that the residuals are approximately normal. Rhere are no other patterns in the explanatory variables of note. 
 
 \subsection*{11.44 Adjusting the analysis for potential outliers.}
-\label{sec:org65569ca}
+\label{sec:org48a7c36}
 The examination of the residuals in part (c) of the previous exercise suggests that there may be two outliers, one with a high residual and one with a low residual. 
 \subsubsection*{(a) Because of safety issues, we are more concerned about underestimating PCB in a specimen than about overestimating. Give the specimen number for each of the two suspected outliers. Which one corresponds to an overestimate of PCB?}
-\label{sec:org498242a}
+\label{sec:org465765e}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./graphs/image6.png}
 \end{center}
 The specimen 50 and 65 are the two data points that are outliers. Specimen 65 corresponds to an overestimate of PCB due to its higher residual value. 
 
 \subsubsection*{(b) Rerun the analysis with the two suspected outliers deleted, summarize these results, and compare them with those you obtained in the previous exercise.}
-\label{sec:orgb283455}
+\label{sec:org4ad9ecb}
 
 \begin{verbatim}
 (Intercept)       pcb52      pcb118      pcb138      pcb180 
@@ -235,10 +235,10 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 The residual standard error has been decreased without the suspected outliers, from 6.382 to 4.555. R\(^{\text{2}}\) has also increased from 0.989 to 0.994, meaning the predictions with this dataset become more accurate. 
 
 \subsection*{11.45 More on predicting the total amount of PCB.}
-\label{sec:org99ce0dd}
+\label{sec:org6984774}
 Run a regression to predict PCB using the variables PCB52, PCB118, and PCB138. Note that this is similar to the analysis that you did in Exercise 11.43, with the change that PCB 180 is not included as an explanatory variable. 
 \subsubsection*{(a) Summarize the results.}
-\label{sec:orgac7a70a}
+\label{sec:orge9e0476}
 
 \begin{verbatim}
 > coef(lm3)
@@ -283,7 +283,7 @@ We can get the following values from the results of the regression:
 \end{itemize}
 
 \subsubsection*{(b) In this analysis, the regression coefficient for PCB118 is not statistically significant. Give the estimate of the coefficient and the associated \emph{P}-value.}
-\label{sec:org7cc638e}
+\label{sec:org94e646f}
 
 \begin{itemize}
 \item Using a significance level \(\alpha\) = 0.05, Specimen PCB118 has a regression coefficient = 0.313 and \emph{P}-value = 0.708
@@ -292,7 +292,7 @@ We can get the following values from the results of the regression:
 \end{itemize}
 
 \subsubsection*{(c) Find the estimate of the coefficient for PCB118 and the associated \emph{P}-value for the model analyzed the Ecercise 11.43.}
-\label{sec:orgc77bbce}
+\label{sec:orgaa4aa94}
 \begin{itemize}
 \item Using a significance level \(\alpha\) = 0.05, Specimen PCB118(from Exercise 11.43) has a regression coefficient = 3.7611 and \emph{P}-value = 0.000
 \item Significance Test: 0.000 < 0.05 (Reject when P > \(\alpha\))
@@ -300,23 +300,23 @@ We can get the following values from the results of the regression:
 \end{itemize}
 
 \subsubsection*{(d) Using the results in parts (b) and (c), write a short paragraph explaining how the inclusion of other variables in a multiple regression can have an effect on the estimate of a particular coefficient and the results of the associated significance test.}
-\label{sec:orge877165}
+\label{sec:org95b9897}
 As parts (b) and (c) of this exercise show, the statistical significance of another variable is changed entirely, just by removing one explanatory variable. In the case above, removing the explanatory variable PCB180 made another explanatory variable PCB118 no longer statistically significant, along with drastically changing the variables corresponding regression coefficient and P-value. 
 
 \subsection*{11.46 Multiple regression model for total TEQ}
-\label{sec:orgd74f8a3}
+\label{sec:orgb23e87a}
 \subsubsection*{(a) Consider using a multiple regression to predict TEQ using the tree components TEQPCB, TEQDIOXIN, and TEQFURAN as explanatory variables. Write the multiple regression model in the form: TEQ = \(\beta_{\text{0}}\) + \(\beta_{\text{1}}\)TEQPCB + \(\beta_{\text{2}}\)TEQDIOXIN + \(\beta_{\text{3}}\)TEQFURAN + \(\epsilon\). Give numerical values for the parameters \(\beta_{\text{0}}\), \(\beta_{\text{1}}\), \(\beta_{\text{2}}\), and \(\beta_{\text{3}}\).}
-\label{sec:orge51d712}
+\label{sec:org6d3f611}
 
 \(\beta_{\text{0}}\) = 0, \(\beta_{\text{1}}\) = 1, \(\beta_{\text{2}}\) = 1, \(\beta_{\text{3}}\) = 1
 
 TEQ = 0 + 1 * TEQPCB + 1 * TEQDIOXIN + 1 * TEQFURAN
 
 \subsubsection*{(b) The multiple regression model assumes that the \(\epsilon\)'s are Normal with mean zero and standard deviation \(\sigma\). What is the numerical value of \(\sigma\)?}
-\label{sec:orgc4bff81}
+\label{sec:org152d84c}
 \(\sigma\) = s = 7.95e-6
 \subsubsection*{(c) Use software to run this regression and summarize the results.}
-\label{sec:org442bc43}
+\label{sec:orga05fa53}
 
 \begin{verbatim}
 > lm4 <- lm(teq~teqpcb+teqdioxin+teqfuran, data=df)
@@ -358,7 +358,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 \end{verbatim}
 \begin{itemize}
 \item We gathered the following values from the results of the regression:
-\label{sec:org0765d2f}
+\label{sec:org6c8d551}
 \begin{itemize}
 \item Multiple R-squared R\(^{\text{2}}\) = 1
 \item Residual standard error SE = 7.95e-06 \(\approx\) 0
@@ -366,7 +366,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 \end{itemize}
 
 \item Test 1
-\label{sec:org0609916}
+\label{sec:org302bf12}
 
 H\(_{\text{0}}\) : \(\beta_{\text{0}}\) = \(\beta_{\text{1}}\) = \(\beta_{\text{2}}\) = \(\beta_{\text{3}}\) = \(\beta_{\text{4}}\) = 0
 
@@ -375,17 +375,17 @@ H\(_{\text{1}}\) : \(\beta_{\text{0}}\) \(\neq\) 0 \(\vee\) \(\beta_{\text{1}}\)
 Since there is at least one \(\beta_{\text{n}}\) \(\neq\) 0, we reject H\(_{\text{0}}\)
 
 \item Test 2
-\label{sec:org5ac48c8}
+\label{sec:org955c7e9}
 
-H\(_{\text{0}}\) = \(\beta_{\text{j}}\) = 0, \emph{j = 0, 1, 2, 3}
+H\(_{\text{0}}\) : \(\beta_{\text{j}}\) = 0, \emph{j = 0, 1, 2, 3}
 
-H\(_{\text{1}}\) = \(\beta_{\text{j}}\) \(\neq\) 0
+H\(_{\text{1}}\) : \(\beta_{\text{j}}\) \(\neq\) 0
 
 All regression coefficients are significantly different from 0 with the exception of the constant R\(^{\text{1}}\) = 1, meaning 100\% of TEQ is explained by TEQPCB, TEQDIOXIN and TEQFURAN.
 \end{itemize}
 
 \subsection*{11.47 Multiple regression model for total TEQ, cont.}
-\label{sec:org3e03355}
+\label{sec:orga1114cd}
 \begin{verbatim}
 Call:
 lm(formula = teq ~ pcb52 + pcb118 + pcb138 + pcb180, data = df)
@@ -419,7 +419,7 @@ Residuals   64  58.69    0.92
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 \end{verbatim}
 \subsubsection*{The regression equation used:}
-\label{sec:org1310cbb}
+\label{sec:org6f2d1cc}
 TEQ = 1.06 − 0.097 ∗ PCB52 + 0.306 ∗ PCB118 + 0.106 ∗ PCB138 − 0.0039 ∗ PCB180
 \begin{itemize}
 \item Multiple R-squared R\(^{\text{2}}\) = 0.6772
@@ -427,9 +427,9 @@ TEQ = 1.06 − 0.097 ∗ PCB52 + 0.306 ∗ PCB118 + 0.106 ∗ PCB138 − 0.0039 
 \end{itemize}
 
 \subsubsection*{Significance Test:}
-\label{sec:org0995582}
+\label{sec:org1884ba3}
 \begin{itemize}
-\item H\(_{\text{0}}\) = \(\beta_{\text{1}}\) = \(\beta_{\text{2}}\) = \(\beta_{\text{3}}\) = \(\beta_{\text{4}}\) = 0
+\item H\(_{\text{0}}\) : \(\beta_{\text{1}}\) = \(\beta_{\text{2}}\) = \(\beta_{\text{3}}\) = \(\beta_{\text{4}}\) = 0
 \item H\(_{\text{a}}\) : one or more \(\beta\) \(\neq\) 0
 \item The \emph{P}-value of both PCB118 and constant are close to 0, but still significantly different, therefore we reject null hypothesis.
 \end{itemize}
@@ -440,19 +440,19 @@ TEQ = 1.06 − 0.097 ∗ PCB52 + 0.306 ∗ PCB118 + 0.106 ∗ PCB138 − 0.0039 
 When plotting the residuals, the data is skewed right but does not include any other obvious patterns. 
 
 \subsection*{11.48 Predicting total amount of PCB using transformed variables}
-\label{sec:org5390d6e}
+\label{sec:org2a46002}
 Because distributions of variables such as PCB, the PCB congeners, and TEQ tend to be skewed, researchers frequently analyze the logarithms of the measured variables. Create a data set that has the logs of each of the variables in the PCB data file. Note that zero is a possible value for PCB126; most software packages will eliminate these cases when you request a log transformation.
 
 \subsubsection*{(a) If you do not do anything about the 16 zero values of PCB126, what does your software do with these cases? Is there an error message of some kind?}
-\label{sec:org1144f9d}
+\label{sec:org5ef2792}
 In the case of using the R language, the software will replace all the zero values with '-inf' without error.
 
 \subsubsection*{(b) If you attempt to run a regression to predict the log of PCB using the log of PCB126 and the log of PCB52, are the cases with the zero values of PCB126 eliminated? Do you think that this is a good way to handle this situation?}
-\label{sec:org2e6aa97}
+\label{sec:org7c315b2}
 In the case of the R language, the zero cases will remain and there will be no errors reported and it will perform the calculation, which can be beneficial. If there are zero's that are not intended, however, the software will not inform you. 
 
 \subsubsection*{(c) The smallest nonzero value of PCB126 is 0.0052. One common practice when taking logarithms of measured values is to replace the zeros by one-half of the smallest observed value. Create a logarithm data set using this procedure; that is, replace the 16 zero values of PCB126 by 0.0026 before taking logarithms. Use numerical and graphical summaries to describe the distribution of the log variables.}
-\label{sec:orgb891314}
+\label{sec:org0d99123}
 \begin{verbatim}
     pcb138            pcb153            pcb180            pcb28             pcb52        
 Min.   :-0.4463   Min.   :-0.1508   Min.   :-0.9289   Min.   :-5.1160   Min.   :-3.9120  
@@ -483,9 +483,9 @@ Max.   : 1.178150   Max.   : 0.1187
 From the plots, we can conclude that the data is approximately normal. 
 
 \subsection*{11.49 Prediction total amount of PCB using transformed variables, continued.}
-\label{sec:org99c3816}
+\label{sec:orgfd4a4b2}
 \subsubsection*{(a) Use numerical and graphical summaries to describe the relationships between each pair of log variables}
-\label{sec:orga336b0c}
+\label{sec:org0f46626}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./graphs/image10.png}
 \end{center}
@@ -494,11 +494,11 @@ From the plots, we can conclude that the data is approximately normal.
 \end{center}
 All of the pairs shown in the above correlation table have a positive value for their correlation. There is one outlier in the pcb28, otherwise all charts are linearly correlated. 
 \subsubsection*{(b) Compare these summaries with the summaries that you produced in Exercise 11.42 for the measured variables.}
-\label{sec:org88a5566}
+\label{sec:orgce9f4d1}
 All pairs are positively correlated. As the log values get higher the correlations appear to be higher. 
 
 \subsection*{11.50 Even more on predicting total amount of PCB using transformed variables.}
-\label{sec:org1e51d79}
+\label{sec:org18b4b9b}
 Use the log data set that you created in Exercise 11.48 to find a good multiple regression model for predicting the log of PCB. Use only log PCB variables for this analysis. Write a report summarizing your results.
 
 \begin{verbatim}
@@ -558,7 +558,7 @@ The correlation coefficients for the data are also all positive. To say we have 
 Since these plots show approximately normal residuals, roughly linear relationships, independence and the assumptions are said to be upheld and the model is said to be a good fit. 
 
 \subsection*{11.51 Predicting total TEQ using transformed variables.}
-\label{sec:org10f4715}
+\label{sec:orgf414dca}
 Use the log data set that you created in Exercise 11.48 to find a good multiple regression model for predicting the log of TEQ. Use only log PCB variables for this analysis. Write a report summarizing your results and comparing them with the results that you obtained in the previous exercise. 
 
 \begin{verbatim}
@@ -603,10 +603,27 @@ Residuals 61 5.2727  0.0864
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 \end{verbatim}
+The results of this model: 
+\begin{itemize}
+\item Multiple R\(^{\text{2}}\) = 0.7819
+\item Residual standard error SE = 0.291
+\end{itemize}
 
-
+Due to the resulting R\(^{\text{2}}\) and SE values, this fit is not as good of a fit as the model in Exercise 11.50.
 
 \subsection*{11.52 Interpretation of coefficients in log PCB regressions}
-\label{sec:org99acc2a}
+\label{sec:org1605d52}
 Use the results of your analysis of the log PCB data in Exercise 11.50 to write an explanation of how regression coefficients, standard errors of regression coefficients, and tests of significance for explanatory variables can change depending on what other explanatory variables are included in the multiple regression analysis 
+
+
+To summarize, the results tell us that the total amount of PCB is expected to either increase or decrease according to the coefficient of the respective congener. For example, log PCB180 has a correlation coefficient of 0.135 which means log PCB is expecrted to increase or decrease by 0.135 when log PCB180 increases or decreases by 1.
+
+Significance Test:
+\begin{itemize}
+\item H\(_{\text{0}}\) : \(\beta_{\text{1}}\) = \(\beta_{\text{2}}\) = \(\beta_{\text{3}}\) = \(\beta_{\text{4}}\) = 0
+\item H\(_{\text{a}}\) : one or more \(\beta\) \(\neq\) 0
+\end{itemize}
+
+The \emph{P}-value of both PCB118 and constant are close to 0, but still significantly different.
+Therefore, we reject null hypothesis and all the coefficients are significantly different from zero. 
 \end{document}
