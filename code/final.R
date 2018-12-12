@@ -43,3 +43,32 @@ anova(lm1)
 
 qqnorm(residuals(lm1))
 plot(lm1, which=2)
+
+# Problem 11.44
+plot(lm1)
+
+df2 <- df[-c(50, 65), ]
+subdf2 <- subset(df2, select=c("pcb", "pcb52", "pcb118", "pcb138", "pcb180"))
+lm2 = lm(pcb~pcb52+pcb118+pcb138+pcb180, data=subdf2)
+coef(lm2)
+summary(lm2)
+anova(lm2)
+
+# Problem 11.45 
+subdf3 <- subset(df, select=c("pcb", "pcb52", "pcb118", "pcb138"))
+lm3 = lm(pcb~pcb52+pcb118+pcb138, data=subdf3)
+coef(lm3)
+summary(lm3)
+anova(lm3)
+
+# Problem 11.46
+lm4 <- lm(teq~teqpcb+teqdioxin+teqfuran, data=df)
+coef(lm4)
+summary(lm4)
+anova(lm4)
+
+# Problem 11.47
+lm5 <- lm(teq~pcb52+pcb118+pcb138+pcb180, data=df)
+summary(lm5)
+summary(aov(lm5))
+plot(lm5, which=1)
