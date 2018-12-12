@@ -341,16 +341,149 @@ When plotting the residuals, the data is skewed right but does not include any o
 Because distributions of variables such as PCB, the PCB congeners, and TEQ tend to be skewed, researchers frequently analyze the logarithms of the measured variables. Create a data set that has the logs of each of the variables in the PCB data file. Note that zero is a possible value for PCB126; most software packages will eliminate these cases when you request a log transformation.
 
 *** (a) If you do not do anything about the 16 zero values of PCB126, what does your software do with these cases? Is there an error message of some kind?
+In the case of using the R language, the software will replace all the zero values with '-inf' without error.
 
 *** (b) If you attempt to run a regression to predict the log of PCB using the log of PCB126 and the log of PCB52, are the cases with the zero values of PCB126 eliminated? Do you think that this is a good way to handle this situation?
+In the case of the R language, the zero cases will remain and there will be no errors reported and it will perform the calculation, which can be beneficial. If there are zero's that are not intended, however, the software will not inform you. 
+
 *** (c) The smallest nonzero value of PCB126 is 0.0052. One common practice when taking logarithms of measured values is to replace the zeros by one-half of the smallest observed value. Create a logarithm data set using this procedure; that is, replace the 16 zero values of PCB126 by 0.0026 before taking logarithms. Use numerical and graphical summaries to describe the distribution of the log variables. 
+#+BEGIN_EXAMPLE
+     pcb138            pcb153            pcb180            pcb28             pcb52        
+ Min.   :-0.4463   Min.   :-0.1508   Min.   :-0.9289   Min.   :-5.1160   Min.   :-3.9120  
+ 1st Qu.: 1.1569   1st Qu.: 1.1939   1st Qu.: 0.2151   1st Qu.:-2.0715   1st Qu.:-1.4784  
+ Median : 1.5933   Median : 1.6938   Median : 0.9895   Median :-1.3394   Median :-0.7402  
+ Mean   : 1.6139   Mean   : 1.7033   Mean   : 0.9752   Mean   :-1.3338   Mean   :-0.7722  
+ 3rd Qu.: 2.1576   3rd Qu.: 2.2895   3rd Qu.: 1.5019   3rd Qu.:-0.8393   3rd Qu.:-0.1143  
+ Max.   : 3.4751   Max.   : 3.7728   Max.   : 3.4500   Max.   : 1.9359   Max.   : 2.2039  
+     pcb126           pcb118             pcb             teq               teqpcb        
+ Min.   :-5.952   Min.   :-1.4439   Min.   :1.808   Min.   :-0.06358   Min.   :-2.68282  
+ 1st Qu.:-5.221   1st Qu.: 0.3988   1st Qu.:3.407   1st Qu.: 0.30565   1st Qu.:-0.07958  
+ Median :-4.906   Median : 0.8838   Median :3.870   Median : 0.72609   Median : 0.23373  
+ Mean   :-4.846   Mean   : 0.8559   Mean   :3.917   Mean   : 0.80475   Mean   : 0.15422  
+ 3rd Qu.:-4.220   3rd Qu.: 1.3584   3rd Qu.:4.518   3rd Qu.: 1.31648   3rd Qu.: 0.87228  
+ Max.   :-3.451   Max.   : 2.9392   Max.   :5.764   Max.   : 1.87074   Max.   : 1.68953  
+   teqdioxin            teqfuran      
+ Min.   :-5.952244   Min.   :-5.9522  
+ 1st Qu.:-1.505078   1st Qu.:-2.1804  
+ Median :-0.440787   Median :-1.6623  
+ Mean   :-0.853919   Mean   :-1.7870  
+ 3rd Qu.: 0.004988   3rd Qu.:-1.2090  
+ Max.   : 1.178150   Max.   : 0.1187  
+#+END_EXAMPLE
+
+[[./graphs/image8.png]]
+From the plots, we can conclude that the data is approximately normal. 
 
 ** 11.49 Prediction total amount of PCB using transformed variables, continued. 
-*** (a) Use numerical and graphical summaries to describe the relationships between each pair of log variables.
+*** (a) Use numerical and graphical summaries to describe the relationships between each pair of log variables
+[[./graphs/image10.png]]
+[[./graphs/image9.png]]
+All of the pairs shown in the above correlation table have a positive value for their correlation. There is one outlier in the pcb28, otherwise all charts are linearly correlated. 
 *** (b) Compare these summaries with the summaries that you produced in Exercise 11.42 for the measured variables. 
+All pairs are positively correlated. As the log values get higher the correlations appear to be higher. 
 
 ** 11.50 Even more on predicting total amount of PCB using transformed variables. 
-Use the log data set that you created in Exercise 11.48 to find a good multiple regression model for predicting the log of PCB. Use only log PCB variables for this analysis. Write a report summarizing your results. 
+Use the log data set that you created in Exercise 11.48 to find a good multiple regression model for predicting the log of PCB. Use only log PCB variables for this analysis. Write a report summarizing your results.
+ 
+#+BEGIN_EXAMPLE
+Call:
+lm(formula = pcb ~ (pcb52 + pcb118 + pcb138 + pcb153 + pcb180 + 
+    pcb28 + pcb126), data = df_log)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.28190 -0.07000 -0.01204  0.04450  0.51501 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 2.986842   0.253510  11.782  < 2e-16 ***
+pcb52       0.101588   0.029763   3.413  0.00115 ** 
+pcb118      0.150074   0.066788   2.247  0.02827 *  
+pcb138      0.395901   0.127410   3.107  0.00287 ** 
+pcb153      0.146018   0.053529   2.728  0.00831 ** 
+pcb180      0.132351   0.061925   2.137  0.03659 *  
+pcb28       0.087940   0.025828   3.405  0.00118 ** 
+pcb126      0.003972   0.038703   0.103  0.91858    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.135 on 61 degrees of freedom
+Multiple R-squared:  0.9746,	Adjusted R-squared:  0.9717 
+F-statistic: 334.2 on 7 and 61 DF,  p-value: < 2.2e-16
+
+> anova(lm6)
+Analysis of Variance Table
+
+Response: pcb
+          Df  Sum Sq Mean Sq   F value    Pr(>F)    
+pcb52      1 21.4665 21.4665 1178.3204 < 2.2e-16 ***
+pcb118     1 15.1504 15.1504  831.6213 < 2.2e-16 ***
+pcb138     1  5.4596  5.4596  299.6863 < 2.2e-16 ***
+pcb153     1  0.1279  0.1279    7.0217  0.010242 *  
+pcb180     1  0.2074  0.2074   11.3855  0.001291 ** 
+pcb28      1  0.2120  0.2120   11.6380  0.001152 ** 
+pcb126     1  0.0002  0.0002    0.0105  0.918584    
+Residuals 61  1.1113  0.0182                        
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#+END_EXAMPLE
+The results of this mode: 
++ Multiple R^2 = 0.9751
++ Residual standard error SE = 0.135
+
+The correlation coefficients for the data are also all positive. To say we have found the best fit, all assumptions made under the least squares regression should be upheld
+
+[[./graphs/image11.png]]
+
+Since these plots show approximately normal residuals, roughly linear relationships, independence and the assumptions are said to be upheld and the model is said to be a good fit. 
 
 ** 11.51 Predicting total TEQ using transformed variables. 
 Use the log data set that you created in Exercise 11.48 to find a good multiple regression model for predicting the log of TEQ. Use only log PCB variables for this analysis. Write a report summarizing your results and comparing them with the results that you obtained in the previous exercise. 
+
+#+BEGIN_EXAMPLE
+Call:
+lm(formula = teq ~ (pcb52 + pcb118 + pcb138 + pcb153 + pcb180 + 
+    pcb28 + pcb126), data = df_log)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.53673 -0.18249  0.00731  0.14905  1.00180 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  3.69833    0.55220   6.697 7.65e-09 ***
+pcb52        0.04209    0.06483   0.649    0.519    
+pcb118       0.19173    0.14548   1.318    0.192    
+pcb138      -0.08939    0.27753  -0.322    0.748    
+pcb153      -0.09030    0.11660  -0.774    0.442    
+pcb180       0.06266    0.13489   0.465    0.644    
+pcb28        0.04508    0.05626   0.801    0.426    
+pcb126       0.56299    0.08430   6.678 8.25e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.294 on 61 degrees of freedom
+Multiple R-squared:  0.7822,	Adjusted R-squared:  0.7572 
+F-statistic: 31.29 on 7 and 61 DF,  p-value: < 2.2e-16
+
+> anova(lm7)
+Analysis of Variance Table
+
+Response: teq
+          Df Sum Sq Mean Sq F value    Pr(>F)    
+pcb52      1 5.1828  5.1828 59.9597 1.217e-10 ***
+pcb118     1 8.5829  8.5829 99.2955 2.041e-14 ***
+pcb138     1 0.3628  0.3628  4.1973  0.044797 *  
+pcb153     1 0.7742  0.7742  8.9565  0.003987 ** 
+pcb180     1 0.0777  0.0777  0.8988  0.346847    
+pcb28      1 0.0974  0.0974  1.1267  0.292670    
+pcb126     1 3.8550  3.8550 44.5985 8.254e-09 ***
+Residuals 61 5.2727  0.0864                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#+END_EXAMPLE
+
+
+
+** 11.52 Interpretation of coefficients in log PCB regressions
+Use the results of your analysis of the log PCB data in Exercise 11.50 to write an explanation of how regression coefficients, standard errors of regression coefficients, and tests of significance for explanatory variables can change depending on what other explanatory variables are included in the multiple regression analysis 

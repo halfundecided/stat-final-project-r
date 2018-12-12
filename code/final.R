@@ -72,3 +72,25 @@ lm5 <- lm(teq~pcb52+pcb118+pcb138+pcb180, data=df)
 summary(lm5)
 summary(aov(lm5))
 plot(lm5, which=1)
+
+# Problem 11.48
+df_without_zero <- subset(df, select=c("pcb138", "pcb153", "pcb180", "pcb28", "pcb52", "pcb126", "pcb118", "pcb", "teq", "teqpcb", "teqdioxin", "teqfuran"))
+df_without_zero[df_without_zero == 0] <- 0.0026
+df_log <- log(df_without_zero)
+summary(df_log)
+boxplot(df_log)
+
+# Problem 11.49
+cor(df_log)
+pairs(df_log)
+
+# Problem 11.50
+lm6 = lm(pcb~(pcb52+pcb118+pcb138+pcb153+pcb180+pcb28+pcb126), data=df_log)
+summary(lm6)
+anova(lm6)
+plot(lm6, which=c(1,2))
+
+# Problem 11.51
+lm7 = lm(teq~(pcb52+pcb118+pcb138+pcb153+pcb180+pcb28+pcb126), data=df_log)
+summary(lm7)
+anova(lm7)

@@ -1,9 +1,0 @@
-#+TITLE: Final Project
-#+SUBTITLE: MA331 Intermediate Statistics
-#+DATE: December 12, 2018
-#+AUTHOR: Mijeong Ban and Nate Burgdorfer
-#+STARTUP: showall
-#+OPTIONS: num:nil toc:nil
-#+LaTeX_HEADER: \usepackage[1.0in, top=3.5in]{geometry}
-#+LaTeX_Header: \pagenumbering{none}
-
