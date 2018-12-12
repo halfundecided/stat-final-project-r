@@ -1,0 +1,32 @@
+# Problem 11.42
+df <- read.csv(file = "~/Documents/Stevens/2018FA/MA331/final-project/code/pcb.csv", header = TRUE, sep=",")
+summary(df$pcb)
+summary(df$pcb52)
+summary(df$pcb118)
+summary(df$pcb138)
+summary(df$pcb180)
+
+boxplot(df$pcb)
+boxplot(df$pcb52)
+boxplot(df$pcb118)
+boxplot(df$pcb138)
+boxplot(df$pcb180)
+
+cor(df$pcb, df$pcb52)
+cor(df$pcb, df$pcb118)
+cor(df$pcb, df$pcb138)
+cor(df$pcb, df$pcb180)
+cor(df$pcb52, df$pcb118)
+cor(df$pcb52, df$pcb138)
+cor(df$pcb52, df$pcb180)
+cor(df$pcb118, df$pcb138)
+cor(df$pcb118, df$pcb180)
+cor(df$pcb138, df$pcb180)
+
+plot(df$pcb52, df$pcb, xlab="PCB52", ylab="PCB", main = "PCB vs PCB52")
+plot(df$pcb118, df$pcb, xlab="PCB118", ylab="PCB", main = "PCB vs PCB118")
+plot(df$pcb138, df$pcb, xlab="PCB138", ylab="PCB", main = "PCB vs PCB138")
+plot(df$pcb180, df$pcb, xlab="PCB180", ylab="PCB", main = "PCB vs PCB180")
+plot(df$pcb118, df$pcb52, xlab="PCB118", ylab="PCB52", main = "PCB52 vs PCB118")
+plot(df$pcb138, df$pcb52, xlab="PCB138", ylab="PCB52", main = "PCB52 vs PCB138")
+
