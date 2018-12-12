@@ -4,6 +4,12 @@
 
 * Part One. Statistical Report
 
+The purpose of this project is to understand a set of data and examine different values in the data set, and determine which of the values give us an accurate way to estimate the total value of all PCB congeners in a sample. The data we were given with the study was the Polychlorinated biphenyls, also known as PCBs, in a specimen and the type of congener that the total PCB compound is constructed of. In this study, we conducted correlation and multiple linear regression studies to examine the relationship in a set of data. 
+
+We begin with analyzing the general statistics of the data. Table 1 summarizes the descriptive statistics of the PCB congener variables and Table 2 shows the relationship between each pair of variables by giving their correlations. The table showed that all of pairs have a positive correlation, meaning that any specimen with more than one PCB congener is expected to have other PCB congeners as well. 
+
+We then examine a series of test with multiple regressions. Exercise 11.43-(b) gets us to practice the regression analysis of select PCBs. The squared multiple correlation coefficient is 0.989 and the residual standard error is 6.382. It means that approximately 98% of variation in the response variable PCB is explained by the explanatory variables in the regression equation. To reduce the standard error caused by the variance in the explanatory variables, we apply a logarithmic function to each and rerun the regression. As a result, the new regression indicates the squared multiple correlation coefficient is 0.9746 and the residual standard error is 0.135. Applying a logarithmic function to each variable efficiently reduces the standard error. Therefore, it is possible to make more accurate conclusions based on the model and to use it to better estimate the total amount of PCBs in a specimen using a subset of the total congeners in the specimen.  
+
 * Part Two. Textbook Exercises
 ** 11.42 Relationships among PCB congeners 
 Consider the following variables: PCB(the total amount of PCB) and four congeners: PCB52, PCB118, PCB138, and PCB180.
